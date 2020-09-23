@@ -18,3 +18,8 @@ CREATE TABLE account (
     wachtwoord VARCHAR(255),
     FOREIGN KEY (id) REFERENCES account(id)
 );
+
+/* Create admin account and add him to the tables */
+
+INSERT INTO `account` (`id`, `email`, `password`) VALUES ('', 'admin@admin.nl', '6NtWPVHgMhHap4Da');
+INSERT INTO `persoon` (`id`, `voornaam`, `tussenvoegsel`, `achternaam`, `email`, `gebruikersnaam`, `wachtwoord`) VALUES ('', 'admin', NULL, 'admin', 'admin@admin.nl', 'admin', '6NtWPVHgMhHap4Da');
