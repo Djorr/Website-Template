@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Title of the document</title>
+    <title>Registreren</title>
   </head>
   <body> 
     <form action="action_page.php" style="border:1px solid #ccc">
