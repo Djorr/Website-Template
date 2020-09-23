@@ -10,7 +10,7 @@ class database {
 	private $db;
 
 	/**
-	 *  Connects to the database.
+	 *  Connects to the database. (Notitie: Week 4 Les 1)
 	 */
 	public function __construct($host, $username, $password, $database, $charset) {
 		$this->host = $host;
