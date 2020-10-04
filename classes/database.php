@@ -80,23 +80,7 @@ class database {
 	}
 
 	public function lostPassword($email) {
-		try {
-			$this->pdo->beginTransaction();
 
-			$query = "SELECT * FROM account WHERE
-					(email)
-					=
-					(:email)";
-
-			$statement = $this->pdo->prepare($query);
-
-			$statement->execute(['email' => $email]);
-
-			$this->pdo->commit();
-		}catch(Exception $e){
-			$this->pdo->rollback();
-			throw $e;
-		}
 	}
 };
 
