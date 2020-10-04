@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Title of the document</title>
+    <title>Inloggen</title>
   </head>
   <body>
     <form action="action_page.php" method="post">
@@ -20,8 +20,8 @@
       </div>
 
       <div class="container" style="background-color:#f1f1f1">
-        <span class="psw"><a href="signup.php">Register</span><br>
-        <span class="psw"><a href="lostpsw.php">Forgot password?</a></span>
+        <span class="psw"><a href="./signup.php">Register</span><br>
+        <span class="psw"><a href="./lostpsw.php">Forgot password?</a></span>
       </div>
     </form>
   </body>

@@ -1,25 +1,25 @@
-/* Creating the table: account  (Notitie: Week 2 Les 1) */
+/* Creating the table: account */
 
 CREATE TABLE account (
-    id INT NOT NULL PRIMARY KEY,
-    email VARCHAR(255),
-    password VARCHAR(255)
+    id INT NOT NULL AUTO_INCREMENT,
+    gebruikersnaam VARCHAR(250) UNIQUE,
+    email VARCHAR(250) UNIQUE NOT NULL,
+    password VARCHAR(250) NOT NULL,
+    PRIMARY KEY(id)
 );
 
-/* Creating the table: persoon  (Notitie: Week 2 Les 1)*/
+/* Creating the table: persoon */
 
-CREATE TABLE account (
-    id INT NOT NULL PRIMARY KEY,
-    voornaam VARCHAR(255),
-    tussenvoegsel VARCHAR(255),
-    achternaam VARCHAR(255),
-    email VARCHAR(255),
-    gebruikersnaam VARCHAR(255),
-    wachtwoord VARCHAR(255),
-    FOREIGN KEY (id) REFERENCES account(id)
+CREATE TABLE persoon (
+    id INT NOT NULL AUTO_INCREMENT,
+    account_id INT NOT NULL,
+    voornaam VARCHAR(250) NOT NULL,
+    tussenvoegsel VARCHAR(250),
+    achternaam VARCHAR(250) NOT NULL,
+    PRIMARY KEY(id),
+    FOREIGN KEY (account_id) REFERENCES account(id)
 );
 
-/* Create admin account and add him to the tables  (Notitie: Week 4 Les 1)*/
+/* Create admin account and add him to the tables */
 
-INSERT INTO `account` (`id`, `email`, `password`) VALUES ('', 'admin@admin.nl', '6NtWPVHgMhHap4Da');
-INSERT INTO `persoon` (`id`, `voornaam`, `tussenvoegsel`, `achternaam`, `email`, `gebruikersnaam`, `wachtwoord`) VALUES ('', 'admin', NULL, 'admin', 'admin@admin.nl', 'admin', '6NtWPVHgMhHap4Da');
+INSERT INTO `account` VALUES (NULL, 'admin', 'admin@admin.nl', 'admin');

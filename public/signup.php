@@ -1,46 +1,39 @@
 <?php
 
-  include 'database.php';
+  include '../classes/database.php';
 
   $db = new database('localhost', 'root', '', 'project1', 'utf8');
-  $db->executeQuerySignUp();
-  
-?>
 
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['uname'];
+    $firstname = $_POST['fname'];
+    $middlename = $_POST['mname'];
+    $lastname = $_POST['lname'];
+    $password = $_POST['pwd'];
+    $email = $_POST['email'];
+
+    $db->insert($username, $firstname, $middlename, $lastname, $password, $email);
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Registreren</title>
   </head>
-  <body> 
-    <form action="action_page.php" style="border:1px solid #ccc">
-      <div class="container"><br>
-        <label for="firstname"><b>Voornaam (verplicht)</b></label>
-        <input type="text" placeholder="Vul uw voornaam in" name="firstname" required><br><br>
-
-        <label for="suffixname"><b>Tussenvoegsel (optioneel)</b></label>
-        <input type="text" placeholder="Vul eventuele tussenvoegsel in" name="suffixname"><br><br>
-
-        <label for="lastname"><b>Achternaam (verplicht)</b></label>
-        <input type="text" placeholder="Vul uw achternaam in" name="lastname" required><br><br>
-
-        <label for="email"><b>Email (verplicht)</b></label>
-        <input type="text" placeholder="Vul uw email adres in" name="email" required><br><br>
-
-        <label for="username"><b>Gebruikersnaam (verplicht)</b></label>
-        <input type="text" placeholder="Vul uw gebruikersnaam in" name="username" required><br><br>
-
-        <label for="psw"><b>Wachtwoord (verplicht)</b></label>
-        <input type="password" placeholder="Vul uw wachtwoord in" name="psw" required><br><br>
-
-        <label for="psw-repeat"><b>Herhaal Wachtwoord (verplicht)</b></label>
-        <input type="password" placeholder="Herhaal uw wachtwoord" name="psw-repeat" required><br><br>
-
-        <div class="clearfix">
-          <button type="submit" class="signupbtn">Sign Up</button>
-          <button type="button" class="cancelbtn">Cancel</button>
-        </div>
-      </div>
+  <body>
+    <form method="post" action="signup.php" style="border:1px solid #ccc">
+      <fieldset>
+        <input type="text" name="uname" placeholder="Gebruikersnaam"required><br><br>
+        <input type="text" name="fname" placeholder="Voornaam" required><br><br>
+        <input type="text" name="mname" placeholder="Middelnaam"><br><br>
+        <input type="text" name="lname" placeholder="Achternaam" required><br><br>
+        <input type="text" name="email" placeholder="E-mail" required><br><br>
+        <input type="password" name="pwd" placeholder="Wachtwoord" required><br><br>
+        <input type="password" name="repeatpwd" placeholder="Herhaal wachtwoord" required><br><br>
+        <input type="submit" value="Sign up!"><br><br>
+      </fieldset>
+      <a href="index.php">Ik heb al een account.</a>
     </form>
   </body>
 </html>
